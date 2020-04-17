@@ -1,0 +1,28 @@
+#!/bin/sh
+
+sxhkd &
+
+bspc monitor DP-4 -d 1 2
+bspc monitor DP-0 -d 3 4 5
+
+bspc config border_width          4
+bspc config border_radius         10
+bspc config focused_border_color  '#8fbcbb'
+bspc config active_border_color   '#2e3440'
+bspc config normal_border_color   '#2e3440'
+
+bspc config top_padding           60
+bspc config window_gap            20
+bspc config borderless_monocle    true
+bspc config gapless_monocle       false
+bspc config split_ratio           0.52
+bspc config focus_follows_pointer true
+bspc config external_rules_command ~/.config/bspwm/rules
+
+feh --bg-fill ~/pictures/denali.jpg
+xrdb -load ~/.Xresources
+~/.config/polybar/launch.sh
+xsetroot -cursor_name left_ptr
+picom &
+alacritty --class 'spotify,Spotify' -e spt
+alacritty --class 'alsamixer,Alsamixer' -e alsamixer
